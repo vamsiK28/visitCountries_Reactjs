@@ -16,7 +16,7 @@ import {
   NameBox,
   NameOfItem,
   DeleteButton,
-} from './styledComponents'
+} from './styledComponenets'
 
 class Home extends Component {
   state = {
@@ -87,7 +87,7 @@ class Home extends Component {
           >
             Visited Countries
           </h1>
-          {list.length > 0 ? (
+          {list.some(i => i.isVisited) ? (
             <VisitedListDisplay>
               {list.map(eachItem =>
                 eachItem.isVisited ? (
@@ -111,9 +111,7 @@ class Home extends Component {
               )}
             </VisitedListDisplay>
           ) : (
-            list.length === 0 && (
-              <EmptyHeader>No Countries Visited Yet</EmptyHeader>
-            )
+            <EmptyHeader>No Countries Visited Yet</EmptyHeader>
           )}
         </VisitedCountries>
       </AppComponent>
